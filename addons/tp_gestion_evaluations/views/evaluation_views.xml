@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Action -->
+        <record id="action_tp_evaluation" model="ir.actions.act_window">
+            <field name="name">Évaluations TP</field>
+            <field name="res_model">tp.evaluation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Vue liste -->
+        <record id="view_tp_evaluation_tree" model="ir.ui.view">
+            <field name="name">tp.evaluation.tree</field>
+            <field name="model">tp.evaluation</field>
+            <field name="arch" type="xml">
+                <tree string="Évaluations">
+                    <field name="name"/>
+                    <field name="responsible"/>
+                    <field name="date_debut"/>
+                    <field name="statut"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vue formulaire -->
+        <record id="view_tp_evaluation_form" model="ir.ui.view">
+            <field name="name">tp.evaluation.form</field>
+            <field name="model">tp.evaluation</field>
+            <field name="arch" type="xml">
+                <form string="Évaluation">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="responsible"/>
+                            <field name="date_debut"/>
+                            <field name="statut"/>
+                        </group>
+                        <group>
+                            <field name="description" placeholder="Description de l'évaluation..."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <!-- Menu principal -->
+    <menuitem name="Évaluations TP" sequence="10" id="menu_tp_root"/>
+
+    <!-- Sous-menu -->
+    <menuitem name="Gestion des Évaluations" id="menu_tp_evaluation" parent="menu_tp_root" action="action_tp_evaluation" sequence="10"/>
+</odoo>
